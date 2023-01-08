@@ -19,10 +19,13 @@ parted -s "${BASE_IMG_FILE}" mklabel gpt
 parted -s "${BASE_IMG_FILE}" mkpart primary fat32 1MiB 100%
 parted -s "${BASE_IMG_FILE}" set 1 esp on
 
+sleep 2
+
 # Create a loop device for the image file
 LOOP_DEV=$(losetup --find --show --partscan "${BASE_IMG_FILE}")
 
+# Fixes bug of /dev/loopp0p1 not found on slow systems
+sleep 5
+
 # Create a filesystem on the loop device
 mkfs.vfat -F32 "${LOOP_DEV}p1"
-
-
