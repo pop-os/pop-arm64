@@ -21,6 +21,8 @@ mkdir -p "${MNT_DIR}"
 
 info "Mounting image"
 LOOP_DEV=$(losetup --find --show --partscan "${LIVE_IMG_FILE}")
+sleep 5
+
 mount "${LOOP_DEV}p1" "${MNT_DIR}"
 mkdir -p "${CASPER_DIR}"
 
