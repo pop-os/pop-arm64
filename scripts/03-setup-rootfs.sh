@@ -26,7 +26,6 @@ info "Mounting EFI partition"
 LOOP_DEV=$(losetup --find --show --partscan "${BASE_IMG_FILE}")
 sleep 5
 mount "${LOOP_DEV}p1" "${ROOTFS_BASE_DIR}/boot/efi"
-sleep 5
 
 info "Bind mounting apt cache"
 mkdir -p "${ROOTFS_BASE_DIR}/var/cache/apt/archives"
