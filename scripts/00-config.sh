@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+export DEBIAN_FRONTEND=noninteractive
 export LC=C.UTF-8
 
 # If the below line errors; then run `sudo git config --global --add safe.directory '*'`.
