@@ -31,6 +31,8 @@ rsync -arv "${FS_LIVE_DIR}/" "${ROOTFS_LIVE_DIR}/"
 # Mount the EFI system partition
 info "Mounting EFI partition to /iso"
 LOOP_DEV=$(losetup --find --show --partscan "${LIVE_IMG_FILE}")
+sleep 5
+
 mkdir -p "${ROOTFS_LIVE_DIR}/iso"
 mount "${LOOP_DEV}p1" "${ROOTFS_LIVE_DIR}/iso"
 

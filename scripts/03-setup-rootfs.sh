@@ -24,6 +24,7 @@ cp -f "${SCRIPTS_DIR}/chroot-base.sh" "${ROOTFS_BASE_DIR}"
 # Mount the EFI system partition
 info "Mounting EFI partition"
 LOOP_DEV=$(losetup --find --show --partscan "${BASE_IMG_FILE}")
+sleep 5
 mount "${LOOP_DEV}p1" "${ROOTFS_BASE_DIR}/boot/efi"
 
 info "Bind mounting apt cache"
